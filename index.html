@@ -74,6 +74,24 @@
       border-radius: 50%;
       background: #C47B2B;
     }
+    .screenshot-placeholder {
+      width: 100%;
+      max-width: 320px;
+      height: 500px;
+      margin: 32px auto;
+      background: #ECEAE5;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      color: #7A7570;
+      padding: 0 24px;
+    }
+    .waitlist { max-width: 420px; margin: 0 auto 24px; }
+    .waitlist-label { font-size: 14px; font-weight: 700; color: #14110F; margin-bottom: 10px; }
+    .waitlist iframe { border-radius: 12px; }
     .cta-row {
       display: flex;
       justify-content: center;
@@ -148,12 +166,12 @@
     .why p { font-size: 15px; color: #3A3734; margin-bottom: 12px; }
 
     /* Status */
-    .status-section {
-      padding: 56px 24px;
+    .status-note {
       text-align: center;
+      font-size: 13px;
+      color: #7A7570;
+      padding: 0 24px 32px;
     }
-    .status-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-    .status-section p { font-size: 14px; color: #7A7570; max-width: 440px; margin: 0 auto 24px; }
 
     footer {
       border-top: 1px solid #E8E5DF;
@@ -191,7 +209,7 @@
       <img src="apple-touch-icon.png" alt="مُبرم" width="72" height="72">
     </div>
 
-    <div class="badge"><span class="dot"></span> قريباً على App Store و Google Play</div>
+    <div class="badge"><span class="dot"></span> قريباً على App Store</div>
 
     <h1>مُبرم</h1>
     <p class="tagline">عقودك وفواتيرك — بكل احترافية</p>
@@ -200,8 +218,23 @@
       في المملكة العربية السعودية. متوافق مع متطلبات زاتكا، وآمن من اللحظة الأولى.
     </p>
 
+    <!-- Replace this div with actual app screenshots -->
+    <div class="screenshot-placeholder">لقطات شاشة التطبيق — قريباً</div>
+
+    <div class="waitlist">
+      <p class="waitlist-label">سجّل بريدك الإلكتروني</p>
+      <iframe data-tally-src="https://tally.so/embed/YOUR_FORM_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="120"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="سجّل بريدك الإلكتروني — أعلمني عند الإطلاق">
+      </iframe>
+    </div>
+
     <div class="cta-row">
-      <a href="mailto:support@mubrram.app?subject=أعلمني عند الإطلاق" class="btn btn-primary">أعلمني عند الإطلاق</a>
       <a href="#features" class="btn btn-ghost">اكتشف الميزات</a>
     </div>
   </header>
@@ -211,32 +244,69 @@
     <h2>كل ما تحتاجه لإدارة عملك</h2>
     <div class="grid">
       <div class="card">
-        <div class="icon">📝</div>
+        <div class="icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 2v6h6"/>
+            <line x1="8" y1="13" x2="16" y2="13"/>
+            <line x1="8" y1="17" x2="16" y2="17"/>
+          </svg>
+        </div>
         <h3>عقود واضحة</h3>
         <p>أنشئ عقوداً مهنية، أرسلها للعميل، وتابع حالتها من المسودة حتى الإكمال.</p>
       </div>
       <div class="card">
-        <div class="icon">🧾</div>
+        <div class="icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2h12v19l-3-2-3 2-3-2-3 2z"/>
+            <line x1="9" y1="7" x2="15" y2="7"/>
+            <line x1="9" y1="11" x2="15" y2="11"/>
+          </svg>
+        </div>
         <h3>فواتير فورية</h3>
         <p>أنشئ الفاتورة مباشرة من العقد، بدون إعادة كتابة أي بيانات.</p>
       </div>
       <div class="card">
-        <div class="icon">✅</div>
+        <div class="icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
         <h3>متوافق مع زاتكا</h3>
         <p>رمز QR ضريبي تلقائي على كل فاتورة عند تفعيل الرقم الضريبي.</p>
       </div>
       <div class="card">
-        <div class="icon">🔒</div>
+        <div class="icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="11" width="16" height="10" rx="2"/>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+          </svg>
+        </div>
         <h3>خصوصية حقيقية</h3>
         <p>رقم الآيبان يُخزَّن على جهازك فقط، ولا يصل إلى خوادمنا أبداً.</p>
       </div>
       <div class="card">
-        <div class="icon">👥</div>
+        <div class="icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3.2"/>
+            <path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/>
+            <circle cx="17" cy="9" r="2.4"/>
+            <path d="M15.8 14.8c2.3.3 4.2 2.2 4.2 5.2"/>
+          </svg>
+        </div>
         <h3>إدارة العملاء</h3>
         <p>سجل بيانات عملائك مرة واحدة، واستخدمها في كل عقد وفاتورة.</p>
       </div>
       <div class="card">
-        <div class="icon">📄</div>
+        <div class="icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 2v6h6"/>
+            <path d="M12 12v6"/>
+            <path d="M9.5 15.5L12 18l2.5-2.5"/>
+          </svg>
+        </div>
         <h3>PDF عربي أصلي</h3>
         <p>عقود وفواتير بتنسيق PDF عربي كامل، جاهزة للمشاركة فوراً.</p>
       </div>
@@ -251,11 +321,7 @@
     </div>
   </section>
 
-  <section class="status-section">
-    <h2>التطبيق قيد التطوير النشط</h2>
-    <p>نعمل حالياً على إتمام النسخة الأولى. سجّل بريدك وسنُعلمك فور إطلاق التطبيق على المتاجر.</p>
-    <a href="mailto:support@mubrram.app?subject=أعلمني عند الإطلاق" class="btn btn-primary">أعلمني عند الإطلاق</a>
-  </section>
+  <p class="status-note">التطبيق قيد التطوير النشط — سنُعلمك فور الإطلاق.</p>
 
   <footer>
     <div class="links">
@@ -266,5 +332,18 @@
     <p class="copyright">© ٢٠٢٦ مُبرم. جميع الحقوق محفوظة.</p>
   </footer>
 
+  <script>
+    var d = document, w = "https://tally.so/widgets/embed.js", v = function () {
+      "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+        e.src = e.dataset.tallySrc;
+      });
+    };
+    if ("undefined" != typeof Tally) v();
+    else if (d.querySelector('script[src="' + w + '"]') == null) {
+      var s = d.createElement("script");
+      s.src = w; s.onload = v; s.onerror = v;
+      d.body.appendChild(s);
+    }
+  </script>
 </body>
 </html>
