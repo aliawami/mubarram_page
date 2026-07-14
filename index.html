@@ -74,20 +74,31 @@
       border-radius: 50%;
       background: #C47B2B;
     }
-    .screenshot-placeholder {
+    .screenshots {
       width: 100%;
-      max-width: 320px;
-      height: 500px;
       margin: 32px auto;
-      background: #ECEAE5;
-      border-radius: 24px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+    .screenshots::-webkit-scrollbar { display: none; }
+    .screenshots-track {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 14px;
-      color: #7A7570;
+      gap: 16px;
       padding: 0 24px;
+      width: max-content;
+    }
+    .screenshots-track img {
+      height: 460px;
+      width: auto;
+      border-radius: 24px;
+      border: 1px solid #E8E5DF;
+      box-shadow: 0 14px 32px rgba(20, 17, 15, 0.1);
+      scroll-snap-align: center;
+      background: #ECEAE5;
+      display: block;
     }
     .waitlist { max-width: 420px; margin: 0 auto 24px; }
     .waitlist-label { font-size: 14px; font-weight: 700; color: #14110F; margin-bottom: 10px; }
@@ -187,6 +198,7 @@
       .grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 32px; }
       nav .links { display: none; }
+      .screenshots-track img { height: 380px; }
     }
   </style>
 </head>
@@ -218,8 +230,14 @@
       في المملكة العربية السعودية. متوافق مع متطلبات زاتكا، وآمن من اللحظة الأولى.
     </p>
 
-    <!-- Replace this div with actual app screenshots -->
-    <div class="screenshot-placeholder">لقطات شاشة التطبيق — قريباً</div>
+    <div class="screenshots">
+      <div class="screenshots-track">
+        <img src="screenshots/01-signin.png" alt="شاشة تسجيل الدخول" loading="lazy">
+        <img src="screenshots/02-contract.png" alt="شاشة إنشاء عقد جديد" loading="lazy">
+        <img src="screenshots/03-invoice.png" alt="شاشة إنشاء فاتورة جديدة" loading="lazy">
+        <img src="screenshots/04-profile.png" alt="شاشة الملف الشخصي والبيانات الضريبية" loading="lazy">
+      </div>
+    </div>
 
     <div class="waitlist">
       <p class="waitlist-label">سجّل بريدك الإلكتروني</p>
