@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مُبرم — عقودك وفواتيرك، بكل احترافية</title>
-  <meta name="description" content="تطبيق مُبرم لإدارة العقود والفواتير للمستقلين والعاملين لحسابهم الخاص في السعودية. متوافق مع زاتكا، عربي بالكامل.">
+  <meta name="description" content="تطبيق مُبرم لإدارة العقود والفواتير للمستقلين والعاملين لحسابهم الخاص في السعودية. يدعم متطلبات زاتكا عند تفعيل الرقم الضريبي، عربي بالكامل.">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,6 +194,9 @@
     footer .links a { color: #7A7570; text-decoration: none; }
     footer .links a:hover { color: #C47B2B; }
     footer .copyright { font-size: 13px; color: #B8B4AE; }
+    footer .maker { font-size: 12px; color: #B8B4AE; margin-top: 8px; }
+    footer .maker a { color: #7A7570; text-decoration: none; }
+    footer .maker a:hover { color: #C47B2B; }
 
     @media (max-width: 540px) {
       .grid { grid-template-columns: 1fr; }
@@ -222,13 +225,13 @@
       <img src="apple-touch-icon.png" alt="مُبرم" width="72" height="72">
     </div>
 
-    <div class="badge"><span class="dot"></span> قريباً على App Store</div>
+    <div class="badge"><span class="dot"></span> <span id="app-status-badge"></span></div>
 
     <h1>مُبرم</h1>
     <p class="tagline">عقودك وفواتيرك — بكل احترافية</p>
     <p class="desc">
       تطبيق عربي بالكامل لإدارة العقود والفواتير، صُمم خصيصاً للمستقلين والعاملين لحسابهم الخاص
-      في المملكة العربية السعودية. متوافق مع متطلبات زاتكا، وآمن من اللحظة الأولى.
+      في المملكة العربية السعودية. يدعم متطلبات زاتكا عند تفعيل الرقم الضريبي، وآمن من اللحظة الأولى.
     </p>
 
     <div class="screenshots">
@@ -242,6 +245,8 @@
 
     <div class="waitlist">
       <p class="waitlist-label">سجّل بريدك الإلكتروني</p>
+      <!-- TODO(Ali): payoff/incentive line for email signup — e.g. "سجّل بريدك للحصول على..." + real incentive (early access, discount, etc.). Needs a decision first. -->
+      <!-- <p class="waitlist-payoff"></p> -->
       <iframe data-tally-src="https://tally.so/embed/9qa8zK?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         loading="lazy"
         width="100%"
@@ -252,6 +257,9 @@
         title="سجّل بريدك الإلكتروني — أعلمني عند الإطلاق">
       </iframe>
     </div>
+
+    <!-- TODO(Ali): pricing line near the CTA — e.g. "مجاني خلال فترة التجربة". Needs a real pricing decision first. -->
+    <!-- <p class="pricing-line"></p> -->
 
     <div class="cta-row">
       <a href="#features" class="btn btn-ghost">اكتشف الميزات</a>
@@ -340,7 +348,7 @@
     </div>
   </section>
 
-  <p class="status-note">التطبيق قيد التطوير النشط — سنُعلمك فور الإطلاق.</p>
+  <p class="status-note" id="app-status-note"></p>
 
   <footer>
     <div class="links">
@@ -349,7 +357,33 @@
       <a href="mailto:support@mubrram.app">تواصل معنا</a>
     </div>
     <p class="copyright">© ٢٠٢٦ مُبرم. جميع الحقوق محفوظة.</p>
+    <p class="maker">صُنع بواسطة <a href="https://aliawami.com" target="_blank" rel="noopener noreferrer">Ali Alawami</a></p>
   </footer>
+
+  <script>
+    // Single source of truth for launch status — change APP_STATUS and every
+    // mention of status on the page updates. Values: 'in_development' | 'in_review' | 'launched'
+    var APP_STATUS = 'in_review';
+    var STATUS_COPY = {
+      in_development: {
+        badge: 'قيد التطوير حالياً',
+        note: 'التطبيق قيد التطوير النشط — سنُعلمك فور الإطلاق.'
+      },
+      in_review: {
+        badge: 'قيد المراجعة في App Store',
+        note: 'التطبيق في مرحلة المراجعة النهائية على App Store — سنُعلمك فور الإطلاق.'
+      },
+      launched: {
+        badge: 'متوفر الآن على App Store',
+        note: 'التطبيق متوفر الآن — حمّله من App Store.'
+      }
+    };
+    (function () {
+      var copy = STATUS_COPY[APP_STATUS];
+      document.getElementById('app-status-badge').textContent = copy.badge;
+      document.getElementById('app-status-note').textContent = copy.note;
+    })();
+  </script>
 
   <script>
     var d = document, w = "https://tally.so/widgets/embed.js", v = function () {
