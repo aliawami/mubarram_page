@@ -89,6 +89,64 @@
       margin-top: 8px;
     }
     .email-btn:hover { background: #2A2520; }
+    .field-group { margin-bottom: 16px; }
+    .field-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #14110F;
+      margin-bottom: 6px;
+    }
+    .field-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #E8E5DF;
+      border-radius: 10px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 15px;
+      color: #14110F;
+      background: #FFFFFF;
+    }
+    .field-group input:focus { outline: none; border-color: #C47B2B; }
+    .user-chip {
+      font-size: 14px;
+      color: #3A3734;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      background: #F6F5F0;
+      border-radius: 10px;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .checkbox-row input { margin-top: 3px; }
+    .checkbox-row label { font-size: 14px; color: #3A3734; }
+    .btn-danger {
+      display: inline-block;
+      background: #C03A2B;
+      color: #FFFFFF;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      padding: 14px 32px;
+      border-radius: 12px;
+    }
+    .btn-danger:hover:not(:disabled) { background: #A32E22; }
+    .btn-danger:disabled { background: #E8E5DF; color: #9A9590; cursor: not-allowed; }
+    .message {
+      font-size: 14px;
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .message.error { background: #FCEAE8; color: #C03A2B; }
+    .message.success { background: #E5F5EE; color: #1A7D52; }
+    .hidden { display: none; }
     .footer {
       font-size: 13px;
       color: #B8B4AE;
@@ -113,8 +171,44 @@
       </ul>
     </div>
 
+    <div class="card" id="instant-card">
+      <h2>الطريقة الأولى — حذف فوري</h2>
+      <p>سجّل الدخول بحسابك في مُبرم لحذف حسابك وجميع بياناتك فوراً.</p>
+
+      <div id="login-section">
+        <form id="login-form">
+          <div class="field-group">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" required autocomplete="email">
+          </div>
+          <div class="field-group">
+            <label for="password">كلمة المرور</label>
+            <input type="password" id="password" required autocomplete="current-password">
+          </div>
+          <button type="submit" class="email-btn">تسجيل الدخول</button>
+          <p id="login-message" class="message hidden"></p>
+        </form>
+      </div>
+
+      <div id="confirm-section" class="hidden">
+        <p id="user-chip" class="user-chip"></p>
+        <div class="checkbox-row">
+          <input type="checkbox" id="confirm-checkbox">
+          <label for="confirm-checkbox">أفهم أن هذا الإجراء نهائي، وسيتم حذف حسابي وجميع بياناتي دون إمكانية الاسترجاع.</label>
+        </div>
+        <button id="delete-btn" class="btn-danger" disabled>حذف حسابي نهائياً</button>
+        <p id="delete-message" class="message hidden"></p>
+      </div>
+    </div>
+
+    <div class="card hidden" id="done-section">
+      <h2>✅ تم حذف حسابك</h2>
+      <p>تم حذف حسابك وجميع بياناتك بنجاح. نتمنى لك التوفيق.</p>
+    </div>
+
     <div class="card">
-      <h2>كيفية تقديم طلب الحذف</h2>
+      <h2>الطريقة الثانية — عبر البريد الإلكتروني</h2>
+      <p>إن تعذّر عليك تسجيل الدخول، يمكنك تقديم الطلب عبر البريد الإلكتروني بدلاً من ذلك.</p>
       <p>لا تحتاج إلى الاحتفاظ بالتطبيق مثبتاً على جهازك لتقديم هذا الطلب.</p>
       <p>أرسل بريداً إلكترونياً إلى فريق الدعم من عنوان البريد المرتبط بحسابك، وأدرج في رسالتك:</p>
       <p>
@@ -128,7 +222,8 @@
 
     <div class="card">
       <h2>مدة المعالجة</h2>
-      <p>سيتم تنفيذ طلبك ومعالجته خلال <strong>٧ أيام عمل</strong> من استلامه. ستصلك رسالة تأكيد على بريدك الإلكتروني عند اكتمال الحذف.</p>
+      <p>الطريقة الأولى (تسجيل الدخول) فورية — يتم حذف حسابك فور التأكيد.</p>
+      <p>الطريقة الثانية (عبر البريد الإلكتروني) تُعالج خلال <strong>٧ أيام عمل</strong> من استلام الطلب. ستصلك رسالة تأكيد على بريدك الإلكتروني عند اكتمال الحذف.</p>
     </div>
 
     <div class="card">
@@ -141,5 +236,96 @@
 
     <p class="footer">مُبرم · <a href="privacy.html" style="color:#C47B2B;text-decoration:none;">سياسة الخصوصية</a> · <a href="terms.html" style="color:#C47B2B;text-decoration:none;">شروط الاستخدام</a></p>
   </div>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    // Anon key is safe to expose client-side by design — security comes from
+    // RLS policies and the Edge Function's own JWT check, not from hiding this.
+    const SUPABASE_URL = 'https://tjnbrwpziyjvucxbsnoj.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqbmJyd3B6aXlqdnVjeGJzbm9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MzcyODQsImV4cCI6MjA5NTExMzI4NH0.JeJgORiCqJrhb3LZ3cdk9tUJ0jEjQnburt_pMhLYWo8';
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const loginForm = document.getElementById('login-form');
+    const loginSection = document.getElementById('login-section');
+    const confirmSection = document.getElementById('confirm-section');
+    const userChip = document.getElementById('user-chip');
+    const confirmCheckbox = document.getElementById('confirm-checkbox');
+    const deleteBtn = document.getElementById('delete-btn');
+    const loginMessage = document.getElementById('login-message');
+    const deleteMessage = document.getElementById('delete-message');
+    const doneSection = document.getElementById('done-section');
+    const instantCard = document.getElementById('instant-card');
+
+    let currentSession = null;
+
+    confirmCheckbox.addEventListener('change', () => {
+      deleteBtn.disabled = !confirmCheckbox.checked;
+    });
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      loginMessage.className = 'message hidden';
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const submitBtn = loginForm.querySelector('button[type="submit"]');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'جارٍ تسجيل الدخول...';
+
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'تسجيل الدخول';
+
+      if (error || !data.session) {
+        loginMessage.textContent = 'تعذّر تسجيل الدخول. تأكد من صحة البريد الإلكتروني وكلمة المرور.';
+        loginMessage.className = 'message error';
+        return;
+      }
+
+      currentSession = data.session;
+      userChip.textContent = 'مسجّل الدخول باسم: ' + data.session.user.email;
+      loginSection.classList.add('hidden');
+      confirmSection.classList.remove('hidden');
+    });
+
+    deleteBtn.addEventListener('click', async () => {
+      if (!currentSession) return;
+      deleteMessage.className = 'message hidden';
+      deleteBtn.disabled = true;
+      deleteBtn.textContent = 'جارٍ حذف الحساب...';
+
+      try {
+        const res = await fetch(SUPABASE_URL + '/functions/v1/delete-account', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + currentSession.access_token,
+            'apikey': SUPABASE_ANON_KEY,
+            'Content-Type': 'application/json',
+          },
+        });
+        const result = await res.json();
+
+        if (res.ok && result.deleted) {
+          await supabase.auth.signOut();
+          instantCard.classList.add('hidden');
+          doneSection.classList.remove('hidden');
+        } else {
+          deleteMessage.textContent = 'حدث خطأ أثناء حذف الحساب. حاول مرة أخرى أو استخدم الطريقة الثانية أدناه.';
+          deleteMessage.className = 'message error';
+          deleteBtn.disabled = false;
+          deleteBtn.textContent = 'حذف حسابي نهائياً';
+        }
+      } catch (err) {
+        deleteMessage.textContent = 'تعذّر الاتصال بالخادم. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.';
+        deleteMessage.className = 'message error';
+        deleteBtn.disabled = false;
+        deleteBtn.textContent = 'حذف حسابي نهائياً';
+      }
+    });
+  </script>
 </body>
 </html>
