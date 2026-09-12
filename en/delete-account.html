@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حذف الحساب — مُبرم</title>
+  <title>Delete Account — Mubarram</title>
   <link rel="alternate" hreflang="ar" href="https://mubrram.app/delete-account.html">
   <link rel="alternate" hreflang="en" href="https://mubrram.app/en/delete-account.html">
   <link rel="alternate" hreflang="x-default" href="https://mubrram.app/delete-account.html">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
       color: #7A7570;
       text-decoration: none;
       margin-bottom: 24px;
-      margin-right: 16px;
+      margin-left: 16px;
       border: 1px solid #E8E5DF;
       border-radius: 20px;
       padding: 2px 12px;
@@ -74,9 +74,9 @@
     .card p:last-child { margin-bottom: 0; }
     .warning-card {
       background: #F7EDD8;
-      border-right: 3px solid #C47B2B;
+      border-left: 3px solid #C47B2B;
       border-radius: 8px;
-      padding: 14px 16px 14px 32px;
+      padding: 14px 32px 14px 16px;
       margin-bottom: 24px;
     }
     .warning-card h2 {
@@ -86,7 +86,7 @@
       margin-bottom: 10px;
     }
     .warning-card ul {
-      padding-right: 20px;
+      padding-left: 20px;
       font-size: 15px;
       color: #3A3734;
     }
@@ -172,36 +172,36 @@
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="home-link">→ العودة إلى الصفحة الرئيسية</a>
-    <a href="en/delete-account.html" class="lang-switch">EN</a>
+    <a href="index.html" class="home-link">← Home</a>
+    <a href="../delete-account.html" class="lang-switch">عربي</a>
 
-    <h1>حذف الحساب والبيانات</h1>
-    <p class="subtitle">يمكنك في أي وقت طلب حذف حسابك وجميع بياناتك المرتبطة به.</p>
+    <h1>Delete Account and Data</h1>
+    <p class="subtitle">You can request deletion of your account and all associated data at any time.</p>
 
     <div class="warning-card">
-      <h2>⚠️ تنبيه — هذا الإجراء لا يمكن التراجع عنه</h2>
+      <h2>⚠️ Warning — This Action Cannot Be Undone</h2>
       <ul>
-        <li>سيتم حذف جميع عقودك وفواتيرك وبيانات عملائك نهائياً</li>
-        <li>لن تتمكن من استرداد أي بيانات بعد تنفيذ الطلب</li>
-        <li>سيتم إلغاء اشتراكك الفعّال إن وُجد، ولن يُردّ الرسوم المدفوعة</li>
+        <li>All your contracts, invoices, and client data will be permanently deleted</li>
+        <li>You will not be able to recover any data after the request is processed</li>
+        <li>Any active subscription will be canceled, and paid fees will not be refunded</li>
       </ul>
     </div>
 
     <div class="card" id="instant-card">
-      <h2>الطريقة الأولى — حذف فوري</h2>
-      <p>سجّل الدخول بحسابك في مُبرم لحذف حسابك وجميع بياناتك فوراً.</p>
+      <h2>Method 1 — Instant Deletion</h2>
+      <p>Sign in with your Mubarram account to delete your account and all your data immediately.</p>
 
       <div id="login-section">
         <form id="login-form">
           <div class="field-group">
-            <label for="email">البريد الإلكتروني</label>
+            <label for="email">Email</label>
             <input type="email" id="email" required autocomplete="email">
           </div>
           <div class="field-group">
-            <label for="password">كلمة المرور</label>
+            <label for="password">Password</label>
             <input type="password" id="password" required autocomplete="current-password">
           </div>
-          <button type="submit" class="email-btn">تسجيل الدخول</button>
+          <button type="submit" class="email-btn">Sign In</button>
           <p id="login-message" class="message hidden"></p>
         </form>
       </div>
@@ -210,47 +210,47 @@
         <p id="user-chip" class="user-chip"></p>
         <div class="checkbox-row">
           <input type="checkbox" id="confirm-checkbox">
-          <label for="confirm-checkbox">أفهم أن هذا الإجراء نهائي، وسيتم حذف حسابي وجميع بياناتي دون إمكانية الاسترجاع.</label>
+          <label for="confirm-checkbox">I understand this action is final, and my account and all my data will be deleted with no way to recover them.</label>
         </div>
-        <button id="delete-btn" class="btn-danger" disabled>حذف حسابي نهائياً</button>
+        <button id="delete-btn" class="btn-danger" disabled>Delete My Account Permanently</button>
         <p id="delete-message" class="message hidden"></p>
       </div>
     </div>
 
     <div class="card hidden" id="done-section">
-      <h2>✅ تم حذف حسابك</h2>
-      <p>تم حذف حسابك وجميع بياناتك بنجاح. نتمنى لك التوفيق.</p>
+      <h2>✅ Your Account Has Been Deleted</h2>
+      <p>Your account and all your data have been successfully deleted. We wish you the best.</p>
     </div>
 
     <div class="card">
-      <h2>الطريقة الثانية — عبر البريد الإلكتروني</h2>
-      <p>إن تعذّر عليك تسجيل الدخول، يمكنك تقديم الطلب عبر البريد الإلكتروني بدلاً من ذلك.</p>
-      <p>لا تحتاج إلى الاحتفاظ بالتطبيق مثبتاً على جهازك لتقديم هذا الطلب.</p>
-      <p>أرسل بريداً إلكترونياً إلى فريق الدعم من عنوان البريد المرتبط بحسابك، وأدرج في رسالتك:</p>
+      <h2>Method 2 — Via Email</h2>
+      <p>If you're unable to sign in, you can submit the request by email instead.</p>
+      <p>You don't need to keep the app installed on your device to submit this request.</p>
+      <p>Send an email to our support team from the email address linked to your account, and include in your message:</p>
       <p>
-        <strong>١.</strong> عنوان البريد الإلكتروني المرتبط بالحساب<br>
-        <strong>٢.</strong> موضوع الرسالة: <em>طلب حذف الحساب — مُبرم</em>
+        <strong>1.</strong> The email address linked to your account<br>
+        <strong>2.</strong> Subject line: <em>Account Deletion Request — Mubarram</em>
       </p>
-      <a href="mailto:support@mubrram.app?subject=طلب حذف الحساب — مُبرم" class="email-btn">
-        إرسال طلب الحذف
+      <a href="mailto:support@mubrram.app?subject=Account Deletion Request — Mubarram" class="email-btn">
+        Send Deletion Request
       </a>
     </div>
 
     <div class="card">
-      <h2>مدة المعالجة</h2>
-      <p>الطريقة الأولى (تسجيل الدخول) فورية — يتم حذف حسابك فور التأكيد.</p>
-      <p>الطريقة الثانية (عبر البريد الإلكتروني) تُعالج خلال <strong>٧ أيام عمل</strong> من استلام الطلب. ستصلك رسالة تأكيد على بريدك الإلكتروني عند اكتمال الحذف.</p>
+      <h2>Processing Time</h2>
+      <p>Method 1 (sign-in) is instant — your account is deleted as soon as you confirm.</p>
+      <p>Method 2 (via email) is processed within <strong>7 business days</strong> of receiving the request. You'll receive a confirmation email once the deletion is complete.</p>
     </div>
 
     <div class="card">
-      <h2>البيانات التي يتم حذفها</h2>
-      <p>عند تنفيذ الطلب، يتم حذف جميع البيانات التالية بشكل كامل ونهائي:</p>
+      <h2>Data That Gets Deleted</h2>
+      <p>When the request is processed, all of the following data is deleted completely and permanently:</p>
       <p>
-        حساب المستخدم وبيانات تسجيل الدخول · العقود والفواتير · بيانات العملاء · إعدادات الحساب والملف الشخصي
+        User account and sign-in data · Contracts and invoices · Client data · Account and profile settings
       </p>
     </div>
 
-    <p class="footer">مُبرم · <a href="privacy.html" style="color:#C47B2B;text-decoration:none;">سياسة الخصوصية</a> · <a href="terms.html" style="color:#C47B2B;text-decoration:none;">شروط الاستخدام</a></p>
+    <p class="footer">Mubarram · <a href="privacy.html" style="color:#C47B2B;text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:#C47B2B;text-decoration:none;">Terms of Use</a></p>
   </div>
 
   <script type="module">
@@ -289,21 +289,21 @@
       const submitBtn = loginForm.querySelector('button[type="submit"]');
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'جارٍ تسجيل الدخول...';
+      submitBtn.textContent = 'Signing in...';
 
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
       submitBtn.disabled = false;
-      submitBtn.textContent = 'تسجيل الدخول';
+      submitBtn.textContent = 'Sign In';
 
       if (error || !data.session) {
-        loginMessage.textContent = 'تعذّر تسجيل الدخول. تأكد من صحة البريد الإلكتروني وكلمة المرور.';
+        loginMessage.textContent = 'Sign-in failed. Please check your email and password.';
         loginMessage.className = 'message error';
         return;
       }
 
       currentSession = data.session;
-      userChip.textContent = 'مسجّل الدخول باسم: ' + data.session.user.email;
+      userChip.textContent = 'Signed in as: ' + data.session.user.email;
       loginSection.classList.add('hidden');
       confirmSection.classList.remove('hidden');
     });
@@ -312,7 +312,7 @@
       if (!currentSession) return;
       deleteMessage.className = 'message hidden';
       deleteBtn.disabled = true;
-      deleteBtn.textContent = 'جارٍ حذف الحساب...';
+      deleteBtn.textContent = 'Deleting account...';
 
       try {
         const res = await fetch(SUPABASE_URL + '/functions/v1/delete-account', {
@@ -330,16 +330,16 @@
           instantCard.classList.add('hidden');
           doneSection.classList.remove('hidden');
         } else {
-          deleteMessage.textContent = 'حدث خطأ أثناء حذف الحساب. حاول مرة أخرى أو استخدم الطريقة الثانية أدناه.';
+          deleteMessage.textContent = 'Something went wrong while deleting your account. Please try again, or use Method 2 below.';
           deleteMessage.className = 'message error';
           deleteBtn.disabled = false;
-          deleteBtn.textContent = 'حذف حسابي نهائياً';
+          deleteBtn.textContent = 'Delete My Account Permanently';
         }
       } catch (err) {
-        deleteMessage.textContent = 'تعذّر الاتصال بالخادم. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.';
+        deleteMessage.textContent = "Couldn't connect to the server. Please check your internet connection and try again.";
         deleteMessage.className = 'message error';
         deleteBtn.disabled = false;
-        deleteBtn.textContent = 'حذف حسابي نهائياً';
+        deleteBtn.textContent = 'Delete My Account Permanently';
       }
     });
   </script>
